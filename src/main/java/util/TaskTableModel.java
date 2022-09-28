@@ -9,6 +9,8 @@ package util;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.sql.Date;
+
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.Task;
@@ -39,16 +41,13 @@ public class TaskTableModel extends AbstractTableModel {
     public boolean isCellEditable(int rowIndex, int columnIndex){
        
         
-        return true;
+            return true;
         
         
        
     }
+    
    
-    
-    
-     
-    
      
      
      
@@ -96,12 +95,39 @@ public class TaskTableModel extends AbstractTableModel {
     @Override
     public void setValueAt(Object aValue, int rowIndex ,int columnIndex){
         
-        tasks.get(rowIndex).setStatus((boolean) aValue);
+     
         
+        if( columnIndex == 0){
+            tasks.get(rowIndex).setNome((String) aValue);
+          
         
+        }
+        if(columnIndex == 1){
+          
+             tasks.get(rowIndex).setDescricao((String) aValue);
+            
+        }
+        if (columnIndex == 2){
+            
+             tasks.get(rowIndex).setPrazo((Date) aValue);
+         
+      
+       
+        if(columnIndex == 3){
+               
+             tasks.get(rowIndex).setStatus((boolean) aValue);
+        }
         
-        
+      
+       
+
+     
+
     }
+    
+    
+    }
+
 
     public String[] getColumns() {
         return columns;

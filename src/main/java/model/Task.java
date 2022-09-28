@@ -123,6 +123,10 @@ public class Task {
     public String toString() {
         return "Task{" + "id=" + id + ", tb_projetos_id=" + tb_projetos_id + ", nome=" + nome + ", descricao=" + descricao + ", notas=" + notas + ", status=" + status + ", prazo=" + prazo + ", dataCriacao=" + dataCriacao + ", dataAtualizacao=" + dataAtualizacao + '}';
     }
+
+    public void isStatus(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

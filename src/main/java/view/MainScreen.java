@@ -15,6 +15,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import model.Project;
 import model.Task;
 import util.ButtonColumnCellRederer;
@@ -270,6 +271,11 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel6.setLayout(new java.awt.BorderLayout());
 
         jPanelEmptyList.setBackground(java.awt.Color.white);
+        jPanelEmptyList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelEmptyListMouseClicked(evt);
+            }
+        });
 
         jLabelEmptyListTitle.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelEmptyListTitle.setForeground(new java.awt.Color(153, 153, 153));
@@ -391,26 +397,42 @@ public class MainScreen extends javax.swing.JFrame {
         int rowIndex = jTableTasks.rowAtPoint(evt.getPoint());
         int comlumnIndex= jTableTasks.columnAtPoint(evt.getPoint());
         Task task = taskModel.getTasks().get(rowIndex);
+       
         
         switch(comlumnIndex){
             
             case 0:
-                taskController.update(task);
+               
+              
+            
+             taskController.update(task);
+               
             break;
             case 1 :
-                taskController.update(task);
+            taskController.update(task);
+               
              break;
             case 2 :
-                taskController.update(task);
+                
+            taskController.update(task);
+               
              break;
                 
         
             case 3:
-              
+                
                 taskController.update(task);
+               
+              
                  break;  
             case 4:
-                   taskController.update(task);
+               
+                JOptionPane.showMessageDialog(rootPane, "Tarefa editada com sucesso");
+                taskController.update(task);
+                      
+                
+               
+                   
                 break;
                 
             case 5:
@@ -420,6 +442,8 @@ public class MainScreen extends javax.swing.JFrame {
                 int projectIndex = jListProjects.getSelectedIndex();
                 Project project = (Project) projectsModel.get(projectIndex);
                 loadTasks(project.getId());
+                JOptionPane.showMessageDialog(rootPane, "Tarefa excluída com sucesso");
+
                 break;
                 
                 
@@ -433,6 +457,10 @@ public class MainScreen extends javax.swing.JFrame {
         Project project  = (Project) projectsModel.get(projectIndex);
         loadTasks(project.getId());
     }//GEN-LAST:event_jListProjectsMouseClicked
+
+    private void jPanelEmptyListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelEmptyListMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelEmptyListMouseClicked
 
     /**
      * @param args the command line arguments
@@ -504,6 +532,7 @@ public class MainScreen extends javax.swing.JFrame {
       
         jTableTasks.getColumnModel().getColumn(2)
                 .setCellRenderer(new DeadlineColumnCellRederer());
+       
          
      
         

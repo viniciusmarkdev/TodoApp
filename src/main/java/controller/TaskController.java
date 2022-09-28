@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -73,7 +73,7 @@ public class TaskController {
             statement.setString(3, task.getDescricao());
             statement.setString(4, task.getNotas());
             statement.setBoolean(5, task.isStatus());
-            statement.setDate(6, new Date(task.getPrazo().getTime()  ));
+            statement.setDate(6, new Date(task.getPrazo().getTime()));
             statement.setDate(7, new Date(task.getDataCriacao().getTime() ));
             statement.setDate(8, new Date(task.getDataAtualizacao().getTime() ));
             statement.setInt(9, task.getId());
